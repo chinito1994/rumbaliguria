@@ -54,6 +54,7 @@
     <h2>Contatti</h2>
     <form id="contactForm">
       <input type="text" name="nomeCompleto" placeholder="Nome e Cognome" required />
+      <input type="tel" name="telefono" placeholder="Numero di telefono" required pattern="[0-9+\s()-]{7,15}" title="Inserisci un numero di telefono valido" />
       <input type="email" name="email" placeholder="La tua email" required />
       <textarea name="messaggio" rows="5" placeholder="Il tuo messaggio" required></textarea>
       <button type="submit">Invia</button>
@@ -64,8 +65,8 @@
     <p>© 2025 Rumba Liguria. Tutti i diritti riservati.</p>
     <p>
       Email: <a href="mailto:rumbaliguria@hotmail.com">rumbaliguria@hotmail.com</a> |
-      Tel: +3476755366 |
-      <a href="https://www.instagram.com/tuo_account_instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+      Tel: <a href="tel:+393501863148">+39 3501863148</a> |
+      <a href="https://www.instagram.com/rumba_liguria" target="_blank" rel="noopener noreferrer">Instagram</a>
     </p>
   </footer>
 
@@ -74,11 +75,14 @@
       e.preventDefault();
 
       const nome = this.nomeCompleto.value;
+      const telefono = this.telefono.value;
       const email = this.email.value;
       const messaggio = this.messaggio.value;
 
-      const mailtoLink = `mailto:rumbaliguria@hotmail.com?subject=Messaggio da ${encodeURIComponent(nome)}&body=${encodeURIComponent(messaggio + '\n\nEmail: ' + email)}`;
-      
+      const mailtoLink = `mailto:rumbaliguria@hotmail.com?subject=Messaggio da ${encodeURIComponent(nome)}&body=${encodeURIComponent(
+        messaggio + '\n\nEmail: ' + email + '\nTelefono: ' + telefono
+      )}`;
+
       window.location.href = mailtoLink;
     });
   </script>
