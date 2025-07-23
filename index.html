@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rumba Liguria</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Rumba Liguria Logo" />
+      <h1>Rumba Liguria</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#services">Servizi</a></li>
+        <li><a href="#events">Eventi</a></li>
+        <li><a href="#contact">Contatti</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Benvenuti a Rumba Liguria</h1>
+      <p>Eleganza e passione in ogni evento</p>
+      <a href="#contact" class="button">Contattaci</a>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <h2>Servizi</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Organizzazione Eventi</h3>
+        <p>Creiamo eventi su misura per te, con stile e attenzione ai dettagli.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="events" class="events">
+    <h2>Eventi</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Serata Latino</h3>
+        <p>Ogni mercoledì, venerdì, sabato e domenica, musica dal vivo e balli coinvolgenti.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="content">
+    <h2>Contatti</h2>
+    <form id="contactForm">
+      <input type="text" name="nomeCompleto" placeholder="Nome e Cognome" required />
+      <input type="email" name="email" placeholder="La tua email" required />
+      <textarea name="messaggio" rows="5" placeholder="Il tuo messaggio" required></textarea>
+      <button type="submit">Invia</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Rumba Liguria. Tutti i diritti riservati.</p>
+    <p>
+      Email: <a href="mailto:rumbaliguria@hotmail.com">rumbaliguria@hotmail.com</a> |
+      Tel: +3476755366 |
+      <a href="https://www.instagram.com/tuo_account_instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+
+      const nome = this.nomeCompleto.value;
+      const email = this.email.value;
+      const messaggio = this.messaggio.value;
+
+      const mailtoLink = `mailto:rumbaliguria@hotmail.com?subject=Messaggio da ${encodeURIComponent(nome)}&body=${encodeURIComponent(messaggio + '\n\nEmail: ' + email)}`;
+      
+      window.location.href = mailtoLink;
+    });
+  </script>
+</body>
+</html>
